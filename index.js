@@ -1,5 +1,5 @@
-const properties = require('./properties')
-const values = require('./values')
+const properties = require("./lib/properties")
+const values = require("./lib/values")
 
 module.exports = () => {
   return {
