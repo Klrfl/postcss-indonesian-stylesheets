@@ -1,0 +1,7 @@
+:root {
+  color-scheme: light dark;
+}
+
+.box {
+  border: 2px solid cyan;
+}

@@ -9,7 +9,7 @@
     "postcss-indonesian-stylesheets"
   ],
   "scripts": {
-    "test": "jest --coverage && eslint ."
+    "test": "node --test"
   },
   "author": "Pinto Karsanda <pintokarsanda@gmail.com>",
   "license": "MIT",
@@ -21,11 +21,12 @@
     "postcss": "^8.3.0"
   },
   "devDependencies": {
+    "@csstools/postcss-tape": "^5.0.0",
     "clean-publish": "^3.4.2",
     "eslint": "^8.0.1",
-    "eslint-plugin-jest": "^25.2.2",
-    "jest": "^27.3.1",
-    "postcss": "^8.3.11"
+    "postcss": "^8.3.11",
+    "postcss-values-parser": "^6.0.2",
+    "prettier": "^3.2.5"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -36,18 +37,7 @@
       "es6": true
     },
     "extends": [
-      "eslint:recommended",
-      "plugin:jest/recommended"
-    ],
-    "rules": {
-      "jest/expect-expect": "off"
-    }
-  },
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "statements": 100
-      }
-    }
+      "eslint:recommended"
+    ]
   }
 }
