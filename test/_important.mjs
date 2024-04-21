@@ -1,5 +1,5 @@
 import { postcssTape } from "@csstools/postcss-tape"
-import plugin from "postcss-indonesian-stylesheets"
+import plugin from "../index.js"
 
 postcssTape(plugin)({
   important: {
