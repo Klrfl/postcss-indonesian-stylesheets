@@ -8,6 +8,14 @@ module.exports = () => {
     Declaration(decl) {
       properties.forEach(({ id, en }) => decl.prop === id && (decl.prop = en))
 
+      const HAS_PAKSAKAN = /paksakan!/i;
+      // const IS_PAKSAKAN = /^paksakan!$/i;
+
+      if (HAS_PAKSAKAN.test(decl.value)) {
+        decl.value = decl.value.replace("paksakan!", "").trim()
+        decl.important = true
+      }
+
       const newValueAST = parse(decl.value)
       newValueAST.walk(node => {
         if (node.type !== 'word') return  
