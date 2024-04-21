@@ -9,7 +9,7 @@
     "postcss-indonesian-stylesheets"
   ],
   "scripts": {
-    "test": "jest --coverage && eslint ."
+    "test": "node --test"
   },
   "author": "Pinto Karsanda <pintokarsanda@gmail.com>",
   "license": "MIT",
@@ -21,6 +21,7 @@
     "postcss": "^8.3.0"
   },
   "devDependencies": {
+    "@csstools/postcss-tape": "^4.1.2",
     "clean-publish": "^3.4.2",
     "eslint": "^8.0.1",
     "eslint-plugin-jest": "^25.2.2",
