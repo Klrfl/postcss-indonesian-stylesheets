@@ -1,19 +1,27 @@
 const properties = require("./lib/properties")
 const values = require("./lib/values")
+const { parse } = require("postcss-values-parser")
 
 module.exports = () => {
   return {
-    postcssPlugin: 'postcss-indonesian-stylesheets',
-    Declaration (decl) {
-      properties.forEach(({id, en}) => decl.prop === id && (decl.prop = en))
+    postcssPlugin: "postcss-indonesian-stylesheets",
+    Declaration(decl) {
+      properties.forEach(({ id, en }) => decl.prop === id && (decl.prop = en))
 
-      values.forEach(({ id, en }) => decl.value === id && (decl.value = en))
+      const newValueAST = parse(decl.value)
+      newValueAST.walk(node => {
+        if (node.type !== 'word') return  
 
-      if (decl.value.indexOf('paksakan!') >= 0) {
-        decl.value = decl.value.replace(/\s*paksakan!\s*/, '')
-        decl.important = true
-      }
-    }
+        values.forEach(({id, en}) => {
+          if (node.value === id) node.value = en
+        })
+      })
+
+      const modifiedValue = String(newValueAST)
+      decl.assign({
+        value: modifiedValue
+      })
+    },
   }
 }
 
