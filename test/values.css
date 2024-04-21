@@ -1,5 +1,17 @@
 :root {
-  skema-warna: terang gelap;
+  skema-warna: gelap;
+}
+
+body {
+  lapisan: 0;
+  pinggir: 0;
+  kumpulan-model-tulisan: "Arial", system-ui;
+  tinggi-garis: 1.7;
+
+  tampilan: flex;
+  ratakan-konten: tengah;
+  laraskan-item: tengah;
+  tinggi-minimal: 100vh;
 }
 
 .box {
